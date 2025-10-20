@@ -43,9 +43,10 @@ app.post('/webhook', async (req, res) => {
             // When user sends “Shop Now” or “ดูสินค้า”
             if (t === 'Shop Now' || t === 'ดูสินค้า') {
                 const messages = [
-                    { type: 'text', text: 'link: A' },
-                    { type: 'text', text: 'link: B' },
-                    { type: 'text', text: 'link: C' },
+                    { type: 'text', text: '✨ ขอบคุณที่สนใจสินค้าของเรา ✨\nสามารถเลือกช้อปเครื่องเงินแท้ “Gin Ou Shou Kai (กิงโอะ)” ได้จากร้านค้าออนไลน์ของเราในทุกแพลตฟอร์มด้านล่างนี้ค่ะ 💍' },
+                    { type: 'text', text: '🛒 Shopee: https://shopee.co.th/faciex' },
+                    { type: 'text', text: '🛒 Lazada: https://www.lazada.co.th/shop/bvge1p4d?path=index.htm&lang=en&pageTypeId=1' },
+                    { type: 'text', text: '🛒 TikTok: https://www.tiktok.com/@ginou.official?_t=ZS-90hUJRZwPKB&_r=1' },
                 ];
                 await axios.post(REPLY_API, { replyToken: ev.replyToken, messages }, {
                     headers: { Authorization: `Bearer ${TOKEN}` },

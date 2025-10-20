@@ -41,7 +41,7 @@ app.post('/webhook', async (req, res) => {
             const t = (ev.message.text || '').trim().toLowerCase();
 
             // When user sends “Shop Now” or “ดูสินค้า”
-            if (t === 'shop now' || t === 'ดูสินค้า') {
+            if (t === 'Shop Now' || t === 'ดูสินค้า') {
                 const messages = [
                     { type: 'text', text: 'link: A' },
                     { type: 'text', text: 'link: B' },
@@ -52,13 +52,6 @@ app.post('/webhook', async (req, res) => {
                 });
                 return;
             }
-
-            // Default echo
-            await axios.post(REPLY_API, {
-                replyToken: ev.replyToken,
-                messages: [{ type: 'text', text: `You said: ${ev.message.text}` }],
-            }, { headers: { Authorization: `Bearer ${TOKEN}` } });
-            return;
         }
 
         // Handle postback (for API-created rich menu)
